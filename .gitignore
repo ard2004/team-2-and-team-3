@@ -1,3 +1,4 @@
+runtime-text-to-image/*
 pre-trained models/*
 dataset/*
 *.pyc
