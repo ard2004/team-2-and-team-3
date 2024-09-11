@@ -3,14 +3,15 @@ from os.path import join, isfile
 import numpy as np
 import h5py
 from glob import glob
-from torch.utils.serialization import load_lua
+import torchfile
+# from torch.utils.serialization import load_lua
 from PIL import Image
 import yaml
 import io
 import pdb
 
-with open('config.yaml', 'r') as f:
-	config = yaml.load(f)
+with open('./config.yaml', 'r') as f:
+	config = yaml.safe_load(f)
 
 images_path = config['flowers_images_path']
 embedding_path = config['flowers_embedding_path']

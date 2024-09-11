@@ -1,6 +1,6 @@
 runtime-text-to-image/*
 pre-trained models/*
-dataset/*
+datasets/*
 *.pyc
 .idea/
 checkpoints/*
