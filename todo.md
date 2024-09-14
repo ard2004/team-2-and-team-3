@@ -1,2 +1,0 @@
-- download the dataset and run hd5 script
-- I will return/resume working on it once I complete my work on ICML 2016
