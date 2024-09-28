@@ -1,7 +1,1 @@
-runtime-text-to-image/*
-pre-trained models/*
-datasets/*
-*.pyc
-.idea/
-checkpoints/*
-results/*
+tensorflow-runtime/
