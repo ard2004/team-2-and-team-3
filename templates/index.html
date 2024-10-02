@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text-to-Image Synthesis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Text-to-Image Synthesis</h1>
+        <form id="text-form">
+            <input type="text" id="prompt" placeholder="Enter a text prompt" required>
+            <button type="submit">Generate</button>
+        </form>
+        <div id="image-container">
+            <img id="generated-image" src="" alt="Generated Image">
+        </div>
+    </div>
+    <script>
+        document.getElementById("text-form").onsubmit = async function(event) {
+            event.preventDefault();
+            const prompt = document.getElementById("prompt").value;
+
+            const response = await fetch('/generate', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ prompt })
+            });
+            const data = await response.json();
+
+            if (data.image_path) {
+                document.getElementById("generated-image").src = data.image_path;
+            } else {
+                alert(data.error);
+            }
+        };
+    </script>
+</body>
+</html>
+
